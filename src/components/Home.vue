@@ -384,7 +384,7 @@ label {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background: rgba(6, 16, 39, 0.9);
+  background: rgba(1, 20, 63, 0.9);
   opacity: 0.3;
   z-index: 3;
   animation: anim 0.5s forwards;
@@ -406,7 +406,7 @@ label {
 }
 
 .card h3 {
-  color: purple;
+  color: rgb(189, 52, 189);
 }
 
 /* ----------Slides----------- */
@@ -430,7 +430,7 @@ label {
   grid-area: text1;
   display: flex;
   justify-content: center;
-  justify-items: center;
+  align-items: center;
   height: auto;
 }
 
@@ -439,21 +439,23 @@ label {
   font-size: 11px;
   justify-items: center;
   line-height: 20px;
-  margin-top: 80px;
   flex-direction: column;
   text-align: left;
-  width: 80%;
+  width: 60%;
   height: 20%;
 }
 .sub-text h1,
 h3,
-h4,
-.btn {
+h4 {
   margin: 7px;
+}
+h4 {
+  margin-bottom: 20px;
 }
 .btn {
   padding: 0.6rem 1.3rem;
   text-decoration: none;
+  margin: 7px;
 }
 .controls {
   position: absolute;
@@ -639,39 +641,53 @@ footer a:first-child {
     width: 900px;
   }
 }
-/* @media only screen and (max-width: 1150px) {
-  .slide img {
-    width: 1000px;
+@media only screen and (max-width: 1200px) {
+  .text {
+    align-items: start;
   }
-} */
-/*   small tablets to big tablets: from 768px 0 to 1023px  */
-
-@media only screen and (max-width: 1100px) {
-  .slide img {
-    width: 800px;
+  .sub-text {
+    margin-top: 50px;
   }
 }
 
-/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 1100px) {
+  .slide img {
+    width: 700px;
+  }
+  .sub-text {
+    margin-right: 25px;
+    margin-top: 50px;
+  }
+}
 
 @media only screen and (max-width: 990px) {
   .slide img {
-    width: 650px;
+    width: 620px;
   }
   .two-flowers img {
     margin-left: 10px;
   }
+  .sub-text {
+    margin-right: 25px;
+    margin-top: 30px;
+    min-height: 100%;
+    width: 90%;
+  }
 }
 @media only screen and (max-width: 810px) {
   .slide img {
-    width: 550px;
+    width: 570px;
+  }
+  .sub-text {
+    margin-right: 35px;
+    margin-top: 10px;
   }
 }
 
 @media only screen and (max-width: 767px) {
   #app {
     height: 425px;
-    grid-template-rows: 20% 90% 62% 29% 19%;
+    grid-template-rows: 20% 100% 52% 29% 19%;
     grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
   }
   .burger-text {
@@ -696,15 +712,14 @@ footer a:first-child {
     display: none;
   }
   .text {
-    height: 180px;
-    font-size: 12px;
-    height: 290px;
+    font-size: 13px;
+    height: 260px;
   }
   .sub-text {
-    justify-items: center;
     flex-direction: column;
     text-align: left;
-    width: 280px;
+    margin-top: 40px;
+    width: 400px;
     height: 100%;
   }
   .flowers-dots {
@@ -733,11 +748,26 @@ footer a:first-child {
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 550px) {
+  #app {
+    height: 469px;
+    grid-template-rows: 20% 80% 52% 29% 19%;
+    grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
+  }
   .flowers-dots {
     padding-left: 32%;
     margin: 0;
     height: 100%;
+  }
+}
+@media only screen and (max-width: 470px) {
+  #app {
+    height: 469px;
+    grid-template-rows: 20% 60% 52% 29% 19%;
+    grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
+  }
+  .sub-text {
+    width: 100%;
   }
 }
 </style>
