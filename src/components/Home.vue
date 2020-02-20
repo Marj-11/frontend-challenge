@@ -89,7 +89,7 @@
       </div>
       <div class="dots">
         <div class="new-dots">
-          <span v-if="slideNumber !== 0 " class="dot" @click="currentSlide(0)"></span>
+          <span v-if="slideNumber !== 0" class="dot" @click="currentSlide(0)"></span>
           <span v-if="slideNumber !== 1" class="dot1" @click="currentSlide(1)"></span>
           <span v-if="slideNumber !== 2" class="dot2" @click="currentSlide(2)"></span>
         </div>
@@ -308,7 +308,7 @@ label {
   align-self: center;
 }
 .container {
-  align-self: center;
+  width: 30px;
   cursor: pointer;
 }
 .logo {
@@ -362,10 +362,11 @@ label {
 .overall {
   display: none;
   position: absolute;
-  top: 50px;
+  top: 12%;
+  bottom: 0;
   width: 100%;
   right: 0;
-  opacity: 1;
+
   animation: anim 0.5s reverse;
 }
 
@@ -383,11 +384,9 @@ label {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-image: var(--background);
-  margin-top: 50px;
-  opacity: 0.9;
-  height: 89.3%;
-  z-index: 2;
+  background: rgba(6, 16, 39, 0.9);
+  opacity: 0.3;
+  z-index: 3;
   animation: anim 0.5s forwards;
   -webkit-animation: anim 0.5s forwards;
 }
@@ -431,16 +430,26 @@ label {
   grid-area: text1;
   display: flex;
   justify-content: center;
+  justify-items: center;
   height: auto;
 }
 
 .sub-text {
   display: flex;
+  font-size: 11px;
   justify-items: center;
+  line-height: 20px;
+  margin-top: 80px;
   flex-direction: column;
   text-align: left;
-  width: 100%;
-  height: auto;
+  width: 80%;
+  height: 20%;
+}
+.sub-text h1,
+h3,
+h4,
+.btn {
+  margin: 7px;
 }
 .btn {
   padding: 0.6rem 1.3rem;
@@ -472,7 +481,7 @@ label {
 /* ----------------------flowers--------------------- */
 .flowers-dots {
   grid-area: main-two;
-  height: 100%;
+  height: 160px;
   margin-top: -23px;
   z-index: 1;
   display: flex;
@@ -486,8 +495,8 @@ label {
 
 .two-flowers img {
   z-index: 1;
-  margin-left: 70px;
-  width: 190px;
+  margin-left: 50px;
+  width: 150px;
 }
 .two-flowers img:nth-child(2) {
   margin-left: -40px;
@@ -495,13 +504,13 @@ label {
 
 .big-flower {
   text-align: right;
-  z-index: 1;
   overflow: hidden;
 }
-.big-flower > img {
+.big-flower img {
   margin-right: -80px;
-  margin-left: 220px;
-  width: 290px;
+  margin-left: 100px;
+  width: 240px;
+  z-index: 1;
 }
 
 /* ----------dots----------- */
@@ -519,8 +528,10 @@ label {
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "dot0 dot1 dot2";
   width: 100%;
+  z-index: 1;
   justify-items: center;
 }
+
 .svgs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -625,40 +636,42 @@ footer a:first-child {
 
 @media only screen and (max-width: 1450px) {
   .slide img {
-    width: 800px;
+    width: 900px;
   }
 }
+/* @media only screen and (max-width: 1150px) {
+  .slide img {
+    width: 1000px;
+  }
+} */
 /*   small tablets to big tablets: from 768px 0 to 1023px  */
 
 @media only screen and (max-width: 1100px) {
   .slide img {
-    width: 600px;
+    width: 800px;
   }
 }
 
 /* Small phones to small tablets: from 481px to 767px */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 990px) {
   .slide img {
-    width: 500px;
+    width: 650px;
+  }
+  .two-flowers img {
+    margin-left: 10px;
+  }
+}
+@media only screen and (max-width: 810px) {
+  .slide img {
+    width: 550px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .slide img {
-    width: 450px;
-  }
-}
-@media only screen and (max-width: 620px) {
-  .slide img {
-    width: 300px;
-  }
-}
-
-@media only screen and (max-width: 570px) {
   #app {
-    height: 565px;
-    grid-template-rows: 10% 30% 32% 19% 9%;
+    height: 425px;
+    grid-template-rows: 20% 90% 62% 29% 19%;
     grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
   }
   .burger-text {
@@ -685,7 +698,7 @@ footer a:first-child {
   .text {
     height: 180px;
     font-size: 12px;
-    height: 230px;
+    height: 290px;
   }
   .sub-text {
     justify-items: center;
@@ -695,7 +708,7 @@ footer a:first-child {
     height: 100%;
   }
   .flowers-dots {
-    padding-left: 32%;
+    padding-left: 38%;
     margin: 0;
     height: 100%;
   }
@@ -710,6 +723,21 @@ footer a:first-child {
     font-size: 12px;
     margin-right: 30px;
     width: 30px;
+  }
+  #bar:checked ~ .overall {
+    opacity: 0.2;
+    top: 85px;
+    height: 90.9%;
+    animation: anim 0.5s forwards;
+    -webkit-animation: anim 0.5s forwards;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .flowers-dots {
+    padding-left: 32%;
+    margin: 0;
+    height: 100%;
   }
 }
 </style>
