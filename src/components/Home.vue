@@ -16,10 +16,7 @@
 
       <div class="burger-text">
         <div class="zum">
-          <a href="#" :class="{ textThemeDark: light, textThemeLight: !light}">
-            Zum
-            <br />Product
-          </a>
+          <a href="#" :class="{ textThemeDark: light, textThemeLight: !light}">Zum Product</a>
         </div>
         <input type="checkbox" name="bar" id="bar" />
         <label for="bar">
@@ -70,11 +67,10 @@
       </div>
       <div class="text" :class="{ backLight: !light, background: light}">
         <div class="sub-text" :class="{ textThemeDark: light, textThemeLight: light }">
-          <h1>{{ article.id }}</h1>
-          <h3>{{ article.title }}</h3>
-          <h4>{{ article.intro }}</h4>
-          <div>
-            <a class="btn" href="#" :class="{ btnDark: !light, btnLight: light}">Weiterlesen</a>
+          <p :class="{ textThemeLight: light, textThemeDark: !light}">{{ article.id }}</p>
+          <p :class="{ textThemeLight: light, textThemeDark: !light}">{{ article.intro }}</p>
+          <div class="btn">
+            <a href="#" :class="{ btnDark: !light, btnLight: light}">Weiterlesen</a>
           </div>
         </div>
       </div>
@@ -274,19 +270,17 @@ export default {
   --transparent: transparent;
   --grey: rgb(136, 136, 136);
 }
-body,
-html {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 #app {
-  margin: 0;
   display: grid;
   height: 100vh;
   width: 100%;
   grid-template-columns: 100% auto;
-  grid-template-rows: 12% 58% 20% 10%;
+  grid-template-rows: 11% 60% 19% 10%;
   grid-template-areas: "navbar" "main-one" "main-two" "footer";
 }
 label {
@@ -299,27 +293,27 @@ label {
   flex-direction: row;
   justify-content: space-around;
 }
-.main-nav img {
-  align-self: center;
-}
 .burger-text {
   display: flex;
   flex-direction: row;
   align-self: center;
+  margin-top: 9px;
 }
 .container {
-  width: 30px;
+  width: 25px;
   cursor: pointer;
 }
 .logo {
   align-self: center;
+  width: 110px;
 }
 .zum {
-  text-decoration: none;
-
-  margin-right: 60px;
+  margin-right: 40px;
+  width: 30px;
 }
 .zum a {
+  font-size: 10px;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -328,11 +322,11 @@ label {
 .bar1,
 .bar2,
 .bar3 {
-  width: 30px;
-  height: 4.53px;
-  margin: 6px 0;
+  width: 23px;
+  height: 2.8px;
+  margin: 5px 0;
   transition: 0.4s;
-  border-radius: 4px;
+  border-radius: 10px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -340,8 +334,8 @@ label {
 }
 
 .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
+  -webkit-transform: rotate(-45deg) translate(-7.5px, 6px);
+  transform: rotate(-45deg) translate(-7.5px, 6px);
 }
 
 .change .bar2 {
@@ -349,8 +343,8 @@ label {
 }
 
 .change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
+  -webkit-transform: rotate(45deg) translate(-5px, -5px);
+  transform: rotate(45deg) translate(-5px, -5px);
 }
 
 /* ---------other burger functions----------- */
@@ -366,7 +360,6 @@ label {
   bottom: 0;
   width: 100%;
   right: 0;
-
   animation: anim 0.5s reverse;
 }
 
@@ -402,7 +395,6 @@ label {
   font-weight: 20px;
   line-height: 30px;
   letter-spacing: 2px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .card h3 {
@@ -424,6 +416,7 @@ label {
 .slide img {
   width: 960px;
   height: 100%;
+  object-fit: cover;
 }
 
 .text {
@@ -431,31 +424,36 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
+  max-height: 100%;
 }
 
 .sub-text {
   display: flex;
-  font-size: 11px;
-  justify-items: center;
-  line-height: 20px;
   flex-direction: column;
-  text-align: left;
+  align-items: left;
+  font-size: 10px;
   width: 60%;
-  height: 20%;
+  min-width: 250px;
+  line-height: 18px;
 }
-.sub-text h1,
-h3,
-h4 {
-  margin: 7px;
+.sub-text p {
+  margin: 5px;
 }
-h4 {
-  margin-bottom: 20px;
+.sub-text p:nth-child(1) {
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.sub-text p:nth-child(2) {
+  font-size: 12px;
+  font-weight: bold;
 }
 .btn {
+  margin-top: 20px;
+}
+.btn a {
   padding: 0.6rem 1.3rem;
   text-decoration: none;
-  margin: 7px;
 }
 .controls {
   position: absolute;
@@ -498,7 +496,7 @@ h4 {
 .two-flowers img {
   z-index: 1;
   margin-left: 50px;
-  width: 150px;
+  width: 130px;
 }
 .two-flowers img:nth-child(2) {
   margin-left: -40px;
@@ -511,7 +509,7 @@ h4 {
 .big-flower img {
   margin-right: -80px;
   margin-left: 100px;
-  width: 240px;
+  width: 200px;
   z-index: 1;
 }
 
@@ -520,7 +518,7 @@ h4 {
   width: 30px;
 }
 .dots {
-  margin-top: 80px;
+  margin-top: 60px;
   width: 120px;
   display: flex;
   flex-direction: column;
@@ -631,64 +629,60 @@ footer a {
   align-self: center;
 }
 
-footer a:first-child {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
-
 @media only screen and (max-width: 1450px) {
   .slide img {
     width: 900px;
   }
 }
-@media only screen and (max-width: 1200px) {
-  .text {
-    align-items: start;
-  }
-  .sub-text {
-    margin-top: 50px;
-  }
-}
 
 @media only screen and (max-width: 1100px) {
   .slide img {
-    width: 700px;
-  }
-  .sub-text {
-    margin-right: 25px;
-    margin-top: 50px;
+    width: 600px;
   }
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 900px) {
   .slide img {
-    width: 620px;
+    width: 500px;
   }
   .two-flowers img {
     margin-left: 10px;
   }
-  .sub-text {
-    margin-right: 25px;
-    margin-top: 30px;
-    min-height: 100%;
-    width: 90%;
+  .big-flower img {
+    width: 180px;
+    margin-left: 50px;
   }
 }
-@media only screen and (max-width: 810px) {
+@media only screen and (max-width: 867px) {
   .slide img {
-    width: 570px;
+    width: 500px;
   }
-  .sub-text {
-    margin-right: 35px;
-    margin-top: 10px;
+  .sub-text p {
+    width: 40%;
+    min-width: 160px;
+  }
+  .two-flowers img {
+    width: 120px;
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .slide img {
+    width: 400px;
+  }
+  .sub-text p {
+    width: 40%;
+    min-width: 250px;
+  }
+  .two-flowers img {
+    width: 110px;
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 667px) {
   #app {
-    height: 425px;
-    grid-template-rows: 20% 100% 52% 29% 19%;
-    grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
+    grid-template-rows: 10% 73% 8% 9%;
+    grid-template-areas: "navbar" "main-one" "main-two" "footer";
   }
   .burger-text {
     align-self: center;
@@ -696,11 +690,22 @@ footer a:first-child {
   }
   .slides-cont {
     grid-template-columns: 1fr;
-    height: 100%;
+    grid-template-rows: 50% 50%;
     grid-template-areas: "showcase" "text1";
+  }
+  .text {
+    justify-content: start;
+  }
+  .sub-text {
+    margin-left: 20px;
+    width: 80%;
+  }
+  .sub-text p {
+    width: 100%;
   }
   .slide img {
     width: 100%;
+    height: 100%;
   }
   .container {
     margin-top: -5px;
@@ -711,25 +716,14 @@ footer a:first-child {
   .big-flower {
     display: none;
   }
-  .text {
-    font-size: 13px;
-    height: 260px;
-  }
-  .sub-text {
-    flex-direction: column;
-    text-align: left;
-    margin-top: 40px;
-    width: 400px;
-    height: 100%;
-  }
   .flowers-dots {
-    padding-left: 38%;
-    margin: 0;
+    margin: 0 auto;
     height: 100%;
   }
-  footer {
-    height: 100%;
+  .btn {
+    margin-top: 10px;
   }
+
   .controls {
     bottom: 15px;
     right: 25px;
@@ -746,28 +740,8 @@ footer a:first-child {
     animation: anim 0.5s forwards;
     -webkit-animation: anim 0.5s forwards;
   }
-}
-
-@media only screen and (max-width: 550px) {
-  #app {
-    height: 469px;
-    grid-template-rows: 20% 80% 52% 29% 19%;
-    grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
-  }
-  .flowers-dots {
-    padding-left: 32%;
-    margin: 0;
-    height: 100%;
-  }
-}
-@media only screen and (max-width: 470px) {
-  #app {
-    height: 469px;
-    grid-template-rows: 20% 60% 52% 29% 19%;
-    grid-template-areas: "navbar" "main-one" "text1" "main-two" "footer";
-  }
-  .sub-text {
-    width: 100%;
+  .dots {
+    margin-top: 20px;
   }
 }
 </style>
