@@ -67,8 +67,11 @@
       </div>
       <div class="text" :class="{ backLight: !light, background: light}">
         <div class="sub-text" :class="{ textThemeDark: light, textThemeLight: light }">
-          <p :class="{ textThemeLight: light, textThemeDark: !light}">{{ article.id }}</p>
-          <p :class="{ textThemeLight: light, textThemeDark: !light}">{{ article.intro }}</p>
+          <p id="slideId" :class="{ textThemeLight: light, textThemeDark: !light}">{{ article.id }}</p>
+          <p
+            id="slideId"
+            :class="{ textThemeLight: light, textThemeDark: !light}"
+          >{{ article.intro }}</p>
           <div class="btn">
             <a href="#" :class="{ btnDark: !light, btnLight: light}">Weiterlesen</a>
           </div>
@@ -356,7 +359,7 @@ label {
 .overall {
   display: none;
   position: absolute;
-  top: 12%;
+  top: 11%;
   bottom: 0;
   width: 100%;
   right: 0;
@@ -421,6 +424,7 @@ label {
 
 .text {
   grid-area: text1;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -438,6 +442,9 @@ label {
 }
 .sub-text p {
   margin: 5px;
+  /* transform-origin: center center; */
+  transform: scale(1);
+  transition: transform 1.5s;
 }
 .sub-text p:nth-child(1) {
   font-size: 25px;
@@ -742,6 +749,9 @@ footer a {
   }
   .dots {
     margin-top: 20px;
+  }
+  .overall {
+    margin-top: -28px;
   }
 }
 </style>
